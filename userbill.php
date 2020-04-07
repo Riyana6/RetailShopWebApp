@@ -18,7 +18,7 @@
 
             <h2 align="center">ABC Supermart</h2>
             <div>
-                <img src="image2.jpg" class="card-img-top" alt="...">
+                <img src="image2.jpg" class="card-img-top" alt="... ">
                 <center>
                     <button type="submit" class="btn btn-dark width=" 70%"><a href="userlogin.php"
                             style="color:white;">Logout</a></button>
@@ -168,7 +168,8 @@
         </p>
 
     </div>
-    
+
+
     <script>
     var d = new Date();
     document.getElementById("order_date").innerHTML = d;
