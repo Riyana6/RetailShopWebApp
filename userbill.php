@@ -17,13 +17,12 @@
         <div class="col-sm-4">
 
             <h2 align="center">ABC Supermart</h2>
-            <div>With supporting text below as a natural lead-in to additional content.
+            <div>
                 <img src="image2.jpg" class="card-img-top" alt="...">
                 <center>
-                    <button type="submit" formaction="userlogin.php" class="btn btn-dark width=" 70%">Logout</button>
+                    <button type="submit" class="btn btn-dark width=" 70%"><a href="userlogin.php"
+                            style="color:white;">Logout</a></button>
                 </center>
-
-
             </div>
         </div>
         <div class="col-sm-8">
