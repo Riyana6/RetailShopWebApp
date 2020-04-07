@@ -50,20 +50,20 @@
                                     <td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>"
                                             name="productName[]" id="productName_<?php echo $count; ?>"
                                             class="form-control" autocomplete="off"></td>
-                                    <td><input type="number" value="<?php echo $invoiceItem["order_item_quantity"]; ?>"
+                                    <td><input type="number" value="<?php echo $invoiceItem["item_quantity"]; ?>"
                                             name="quantity[]" id="quantity_<?php echo $count; ?>"
                                             class="form-control quantity" autocomplete="off"></td>
-                                    <td><input type="number" value="<?php echo $invoiceItem["order_item_price"]; ?>"
+                                    <td><input type="number" value="<?php echo $invoiceItem["unit_price"]; ?>"
                                             name="price[]" id="price_<?php echo $count; ?>" class="form-control price"
                                             autocomplete="off"></td>
                                     <td><input type="number"
                                             value="<?php echo $invoiceItem["order_item_final_amount"]; ?>"
                                             name="total[]" id="total_<?php echo $count; ?>" class="form-control total"
                                             autocomplete="off"></td>
-                                    <input type="hidden" value="<?php echo $invoiceItem['order_item_id']; ?>"
+                                    <input type="hidden" value="<?php echo $invoiceItem['item_code']; ?>"
                                         class="form-control" name="itemId[]">
                                 </tr>
-                                <?php } ?>
+                                <?php ?>
                             </table>
                         </div>
                 </div>
