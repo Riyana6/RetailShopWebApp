@@ -1,6 +1,3 @@
-<?php
-$connection = mysqli_connect('localhost','root','','reg');
-?>
 <!DOCTYPE html>
 <html>
 
@@ -9,92 +6,96 @@ $connection = mysqli_connect('localhost','root','','reg');
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-    <script src="js/jquery.min.js"></script><script src="js/bootstrap.min.js"></script><script src="js/jquery.dataTables.min.js"></script><script src="js/dataTables.bootstrap.min.js"></script><link rel="stylesheet"href="css/dataTables.bootstrap.min.css">.content>* {
-        padding-left: 12px;
-    }
-
-    .billcard>* {
-        padding: 1px;
-    }
+    <script src="js/jquery.min.js"></script><script src="js/bootstrap.min.js"></script><script src="js/jquery.dataTables.min.js"></script><script src="js/dataTables.bootstrap.min.js"></script><link rel="stylesheet"href="css/dataTables.bootstrap.min.css">
     </style>
 </head>
 
 <body>
     <link rel="stylesheet" href="css/datepicker.css">
     <script src="js/bootstrap-datepicker1.js"></script>
-
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
 
-            <h2 align="center">ABC SUPERMART</h2>
-            <div>
+            <h2 align="center">ABC Supermart</h2>
+            <div>With supporting text below as a natural lead-in to additional content.
                 <img src="image2.jpg" class="card-img-top" alt="...">
-                <center><button type="submit" class="btn btn-primary"><a href="userlogin.php"
-                            style="color:white;">Logout</a></button>
+                <center>
+                    <button type="submit" formaction="userlogin.php" class="btn btn-dark width=" 70%">Logout</button>
                 </center>
+
 
             </div>
         </div>
         <div class="col-sm-8">
 
-            <div class="billcard">
+            <div class="card">
                 <h2 class="card-title" align="center">Create A Bill</h2>
                 <div class="card-body">
-                    <form action="" method="POST" id="invoice_form">
-                        <div class="">
+                    <form method="post" id="invoice_form">
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tr>
                                     <td colspan="2">
                                         <div class="row">
                                             <div class="col-md-4">
 
-                                                <b>Customer Contact No:</b><br />
+                                                <b>RECEIVER (BILL TO)</b><br />
                                                 <input type="text" name="order_receiver_name" id="order_receiver_id"
-                                                    class="form-control input-sm" placeholder="Customer contact no:" />
+                                                    class="form-control input-sm" placeholder="Enter Reciever ID" />
 
                                             </div>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                    <table class="table table-bordered " id="invoiceItem">
-                                                        <tr>
-                                                            <th width="2%"><input id="checkAll" class="formcontrol"
-                                                                    type="checkbox"></th>
-                                                            <th width="15%">Item No</th>
-                                                            <th width="38">Item Name</th>
-                                                            <th width="15%">Quantity</th>
-                                                            <th width="15%">Price</th>
-                                                            <th width="15%">Total</th>
-                                                        </tr>
+                                            <div class="col-md-4">
 
-
-                                                        <?php
-
-
- if(isset($_POST["Add"]))
- {
- 	 echo'
-	  <tr>
-      <td><input class="itemRow" type="checkbox"></td>
-
-      <td><input type="text" name="item_code"  class="form-control"  value=""></td>
-      <td><input type="text" name="item_name"  class="form-control"  value=""></td>
-      <td><input type="number" name="item_quantity"  class="form-control quantity" autocomplete="off"></td>
-      <td><input type="number" name="unit_price"  class="form-control price" value=""></td>
-      <td><input type="number" name="total"  class="form-control total" autocomplete="off"></td>
-    </tr>';
-  } ?>
-                                                    </table>
-                                                </div>
+                                                <b>Bill Details</b><br />
+                                                <input type="text" name="order_no" id="order_no"
+                                                    class="form-control input-sm" readonly placeholder="Bill No" />
                                             </div>
-                                            <div class="content">
+                                            <div class="col-md-4">
+                                                <b>Date</b><br />
 
+                                                <label id="order_date"> </label>
 
-                                                <input type="submit" name="delete" id="delete"
-                                                    class="btn btn-secondary btn-sm" value="Delete Row" />
-
-                                                <input type="submit" name="Add" id="Add" class="btn btn-info btn-sm"
-                                                    value="Add" />
                                             </div>
+                                        </div>
+                                        <br />
+                                        <table id="invoice-item-table" class="table table-bordered">
+                                            <tr>
+                                                <th width="6%">Sr No.</th>
+                                                <th width="18%">Item Code</th>
+                                                <th width="20%">Item Name</th>
+                                                <th width="4%">Quantity</th>
+                                                <th width="10%">Price</th>
+                                                <th width="11%">Amount</th>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <td><span id="sr_no">1</span></td>
+                                                <td><input type="text" name="item_code[]" id="item_code1"
+                                                        class="form-control input-sm" /></td>
+                                                <td><input type="text" name="item_name[]" id="item_name1"
+                                                        class="form-control input-sm" readonly /></td>
+
+                                                <td><input type="text" name="order_item_quantity[]"
+                                                        id="order_item_quantity1" data-srno="1"
+                                                        class="form-control input-sm order_item_quantity" /></td>
+                                                <td><input type="text" name="order_item_price[]" id="order_item_price1"
+                                                        class="form-control input-sm" readonly /></td>
+                                                <td><input type="text" name="order_item_amount[]"
+                                                        id="order_item__amount1" data-srno="1"
+                                                        class="form-control input-sm order_item_actual_amount"
+                                                        readonly /></td>
+
+                                            </tr>
+
+                                        </table>
+                                        <div align="right">
+                                            <button type="button" name="add_row" id="add_row"
+                                                class="btn btn-success btn-xs">+</button>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td width="64%" align="right" style="color:red"><b>Discount (%)</td>
                                     <td><input type="text" name="item_discount[]" id="item_discount1"
@@ -125,8 +126,7 @@ $connection = mysqli_connect('localhost','root','','reg');
                                         <input type="button" name="text_msg" id="text_msg"
                                             class="btn btn-success btn-sm" value="Text" />
                                         <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                            value="Cancel"><a href="userbill.php"
-                                            style="color:white;">Cancel</a></input>
+                                            value="Cancel" />
                                     </td>
                                 </tr>
                             </table>
