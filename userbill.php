@@ -61,7 +61,7 @@
                                             name="total[]" id="total_<?php echo $count; ?>" class="form-control total"
                                             autocomplete="off"></td>
                                     <input type="hidden" value="<?php echo $invoiceItem['item_code']; ?>"
-                                        class="form-control" name="itemId[]">
+                                        class="form-control" name="item_code[]">
                                 </tr>
                                 <?php ?>
                             </table>
@@ -96,7 +96,7 @@
                 <tr>
                     <td>
                         <textarea name="order_notes" id="order_notes" class="form-control"
-                            placeholder="Additional Notes..."></textarea>
+                            placeholder="Additional Notes... "></textarea>
 
                     </td>
                     <td colspan="3" align="center">
@@ -118,7 +118,7 @@
     </div>
     </div>
     </div>
-
+    </div>
     <script>
     var d = new Date();
     document.getElementById("order_date").innerHTML = d;
