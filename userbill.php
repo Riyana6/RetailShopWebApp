@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/datepicker.css">
     <script src="js/bootstrap-datepicker1.js"></script>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
 
             <h2 align="center">ABC Supermart</h2>
             <div>
@@ -25,7 +25,7 @@
                 </center>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-9">
 
             <div class="card">
                 <h2 class="card-title" align="center">Create A Bill</h2>
@@ -69,26 +69,11 @@
                     </form>
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <button class="btn btn-danger delete" id="removeRows" type="button">- Delete</button>
-                            <button class="btn btn-success" id="addRows" type="button">+ Add More</button>
+                            <button class="btn btn-danger delete" id="removeRows" type="button">Delete</button>
+                            <button class="btn btn-success" id="addRows" type="button">Add More</button>
                         </div>
                     </div>
-                    <table>
-                        <tr>
 
-                            <td colspan="3" align="center">
-                                <input type="hidden" name="total_item" id="total_item" value="1" />
-                                <input type="submit" name="create_ebill" id="create_ebill"
-                                    class="btn btn-secondary btn-sm" value="E-Bill" />
-                                <input type="button" name="print" id="print" class="btn btn-info btn-sm"
-                                    value="Print" />
-                                <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
-                                    value="Text" />
-                                <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                    value="Cancel" />
-                            </td>
-                        </tr>
-                    </table>
                 </div>
 
                 <table cellpadding="5">
@@ -113,8 +98,21 @@
                         <td><input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
                                 class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid"></td>
                     </tr>
+                </table>
+                <table cellpadding="4">
+                    <tr>
 
-
+                        <td colspan="3" align="center">
+                            <input type="hidden" name="total_item" id="total_item" value="1" />
+                            <input type="submit" name="create_ebill" id="create_ebill" class="btn btn-secondary btn-sm"
+                                value="E-Bill" />
+                            <input type="button" name="print" id="print" class="btn btn-info btn-sm" value="Print" />
+                            <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
+                                value="Text" />
+                            <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
+                                value="Cancel" />
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
