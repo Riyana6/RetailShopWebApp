@@ -69,11 +69,11 @@ $connection = mysqli_connect('localhost','root','','reg');
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
                                     <td><input type="text" class="form-control"
-                                            autocomplete="off"><?php echo $row["item_code"] ?></td>
-                                    <td><input type="text" class="form-control" autocomplete="off"></td>
+                                            autocomplete="off"><?php echo $row["item_code"]; ?></td>
+                                    <td><input type="text" class="form-control" autocomplete="on"></td>
                                     <td><input type="number" class="form-control quantity" autocomplete="off"></td>
                                     <td><input type="number" class="form-control price"
-                                            autocomplete="off"><?php echo $row["unit_price"] ?></td>
+                                            autocomplete="off"><?php echo $row["unit_price"]; ?></td>
                                     <td><input type="number" class="form-control total" autocomplete="off"></td>
 
                                 </tr>
