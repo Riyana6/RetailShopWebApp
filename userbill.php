@@ -1,12 +1,13 @@
 <?php
-$connection = mysqli_connect('localhost','root','','reg');
+
 	
-	
-    $item_name =$_POST['item_name'];
+   
+
     if(isset($_POST["Add"]))
     {
+        $connection = mysqli_connect('localhost','root','','reg');
 	
-	
+        $itemname  =$_POST['item_name'];
 	
 	$query= "select unit_price,item_code from item where item_name='$itemname' LIMIT 1";
 	
@@ -14,8 +15,8 @@ $connection = mysqli_connect('localhost','root','','reg');
 	
             while($row = mysqli_fetch_array($result))
              {
-                 $item_code=$row['item_code'];
-                 $unit_price=$row['unit_price'];
+                 $itemcode=$row['item_code'];
+                 $unitprice=$row['unit_price'];
             }
     }
   
@@ -72,13 +73,14 @@ $connection = mysqli_connect('localhost','root','','reg');
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="text"name="item_code" class="form-control"
-                                            autocomplete="off"><?php echo $row["item_code"]; ?></td>
+                                    <td><input type="text" name="item_code" class="form-control">
+                                    </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
-                                    <td><input type="number" name="quantity" class="form-control quantity" autocomplete="off"></td>
-                                    <td><input type="number" name="unit_price" class="form-control price"
-                                            autocomplete="off"><?php echo $row["unit_price"]; ?></td>
-                                    <td><input type="number" class="form-control total" autocomplete="off"></td>
+                                    <td><input type="number" name="quantity" class="form-control">
+                                    </td>
+                                    <td><input type="number" name="unit_price" class="form-control">
+                                    </td>
+                                    <td><input type="number" class="form-control" autocomplete="off"></td>
 
                                 </tr>
                             </table>
@@ -87,7 +89,7 @@ $connection = mysqli_connect('localhost','root','','reg');
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger delete" id="removeRows" type="button">Delete</button>
-                                <button class="btn btn-success" id="addRows" name="Add" type="button">Add More</button>
+                                <button class="btn btn-success" id="addRows" name="Add" type="button">Add</button>
                             </div>
                         </div>
 
