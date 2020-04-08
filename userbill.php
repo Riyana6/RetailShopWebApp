@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="col-sm-9">
-            <form action ="bill.php" method="post" id="invoice_form">
+            <form action="bill.php" method="post" id="invoice_form">
 
                 <div class="card">
                     <h2 class="card-title" align="center">Create A Bill</h2>
@@ -61,8 +61,8 @@
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <button class="btn btn-danger delete" id="removeRows" type="button">Delete</button>
-                                <button class="btn btn-success" id="addRows" name="Add" type="button">Add</button>
+                                <button class="btn btn-danger delete" id="remove" type="button">Delete</button>
+                                <button class="btn btn-success" id="add" name="Add" type="button">Add</button>
                             </div>
                         </div>
 
@@ -110,7 +110,7 @@
                         </tr>
                     </table>
                 </div>
-                </fo rm>
+            </form>
         </div>
         <script>
         var d = new Date();
