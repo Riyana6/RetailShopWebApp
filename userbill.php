@@ -11,7 +11,6 @@ $connection = mysqli_connect('localhost','root','','reg');
 	
 	$result = mysqli_query($connection,$query);
 	
-	$row = mysqli_fetch_array($result);
 	
     }
 	
@@ -77,7 +76,7 @@ $connection = mysqli_connect('localhost','root','','reg');
                                     <td><input type="number" class="form-control total" autocomplete="off"></td>
 
                                 </tr>
-                                <?php ?>
+                                <?php }?>
                             </table>
                         </div>
 
