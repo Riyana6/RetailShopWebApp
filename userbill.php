@@ -3,23 +3,28 @@
 	
    
 
-    if(isset($_POST["Add"]))
+    if(isset($_POST['Add']))
     {
+        $itemname  = $_POST['item_name'];
         $connection = mysqli_connect('localhost','root','','reg');
-	
-        $itemname  =$_POST['item_name'];
-	
-	$query= "select unit_price,item_code from item where item_name='$itemname' LIMIT 1";
+	$query= "select 'unit_price' , 'item_code'  from 'item' where 'item_name' = $itemname limit 1";
 	
 	$result = mysqli_query($connection,$query);
 	
             while($row = mysqli_fetch_array($result))
              {
-                 $itemcode=$row['item_code'];
-                 $unitprice=$row['unit_price'];
+                 $itemcode =$row['item_code'];
+                 $unitprice =$row['unit_price'];
             }
+            mysqli_free_result($result);
+            mysqli_close($connection);
+    }else{
+        $itemcode = "";
+        $unitprice = "";
+
     }
   
+    
 
 
 	
@@ -73,12 +78,12 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="text" name="item_code" class="form-control"><?php echo $itemcode; ?>
+                                    <td><input type="number" name="item_code" class="form-control" value="<?php echo $itemcode; ?>" > 
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
                                     <td><input type="number" name="quantity" class="form-control">
                                     </td>
-                                    <td><input type="number" name="unit_price" class="form-control"><?php echo $unitprice; ?>
+                                    <td><input type="number" name="unit_price" class="form-control" value="<?php echo $unitprice; ?>" >
                                     </td>
                                     <td><input type="number" class="form-control" autocomplete="off"></td>
 
@@ -137,7 +142,7 @@
                         </tr>
                     </table>
                 </div>
-            </form>
+            </fo rm>
         </div>
         <script>
         var d = new Date();
