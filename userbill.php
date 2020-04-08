@@ -73,60 +73,56 @@
                             <button class="btn btn-success" id="addRows" type="button">+ Add More</button>
                         </div>
                     </div>
-                    <div align="right">
-                        <button type="button" name="add_row" id="add_row" class="btn btn-success btn-xs">+</button>
-                    </div>
-                    <tr>
-                        <td>
-                            <textarea name="order_notes" id="order_notes" class="form-control"
-                                placeholder="Additional Notes... "></textarea>
+                    <table>
+                        <tr>
 
-                        </td>
-                        <td colspan="3" align="center">
-                            <input type="hidden" name="total_item" id="total_item" value="1" />
-                            <input type="submit" name="create_ebill" id="create_ebill" class="btn btn-secondary btn-sm"
-                                value="E-Bill" />
-                            <input type="button" name="print" id="print" class="btn btn-info btn-sm" value="Print" />
-                            <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
-                                value="Text" />
-                            <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                value="Cancel" />
-                        </td>
-                    </tr>
+                            <td colspan="3" align="center">
+                                <input type="hidden" name="total_item" id="total_item" value="1" />
+                                <input type="submit" name="create_ebill" id="create_ebill"
+                                    class="btn btn-secondary btn-sm" value="E-Bill" />
+                                <input type="button" name="print" id="print" class="btn btn-info btn-sm"
+                                    value="Print" />
+                                <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
+                                    value="Text" />
+                                <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
+                                    value="Cancel" />
+                            </td>
+                        </tr>
                     </table>
                 </div>
 
-                <table>
-                    <tr><label>Subtotal: </label><input value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
-                            type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
-                    </tr>
-                    <tr><label>Discount: </label><input value="<?php echo $invoiceValues['order_total_tax']; ?>"
-                            type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
-                    </tr>
-                    <tr><label>Total: </label><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>"
-                            type="number" class="form-control" name="totalAftertax" id="totalAftertax"
-                            placeholder="Total">
-                    </tr>
-                    <tr><label>Amount Paid: </label><input value="<?php echo $invoiceValues['order_amount_paid']; ?>"
-                            type="number" class="form-control" name="amountPaid" id="amountPaid"
-                            placeholder="Amount Paid">
+                <table cellpadding="5">
+                    <tr>
+                        <td><label>Subtotal: </label></td>
+                        <td><input width="30" value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
+                                type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
+                        </td>
                     </tr>
                     <tr>
+                        <td><label>Discount: </label></td>
+                        <td><input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number"
+                                class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount"></td>
                     </tr>
+                    <tr>
+                        <td><label>Total: </label></td>
+                        <td><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number"
+                                class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Amount Paid: </label></td>
+                        <td><input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
+                                class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid"></td>
+                    </tr>
+
 
                 </table>
             </div>
-
-            </p>
-
         </div>
-
-
         <script>
         var d = new Date();
         document.getElementById("order_date").innerHTML = d;
         </script>
-
+    </div>
 </body>
 
 </html>
