@@ -1,37 +1,3 @@
-<?php
-
-	
-   
-
-    if(isset($_POST['Add']))
-    {
-        $itemname  = $_POST['item_name'];
-        $connection = mysqli_connect('localhost','root','','reg');
-	$query= "select 'unit_price' , 'item_code'  from 'item' where 'item_name' = $itemname limit 1";
-	
-	$result = mysqli_query($connection,$query);
-	
-            while($row = mysqli_fetch_array($result))
-             {
-                 $itemcode =$row['item_code'];
-                 $unitprice =$row['unit_price'];
-            }
-            mysqli_free_result($result);
-            mysqli_close($connection);
-    }else{
-        $itemcode = "";
-        $unitprice = "";
-
-    }
-  
-    
-
-
-	
-?>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -60,7 +26,7 @@
             </div>
         </div>
         <div class="col-sm-9">
-            <form method="post" id="invoice_form">
+            <form action ="bill.php" method="post" id="invoice_form">
 
                 <div class="card">
                     <h2 class="card-title" align="center">Create A Bill</h2>
@@ -78,12 +44,14 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="number" name="item_code" class="form-control" value="<?php echo $itemcode; ?>" > 
+                                    <td><input type="number" name="item_code" class="form-control"
+                                            value="<?php echo $itemcode; ?>">
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
                                     <td><input type="number" name="quantity" class="form-control">
                                     </td>
-                                    <td><input type="number" name="unit_price" class="form-control" value="<?php echo $unitprice; ?>" >
+                                    <td><input type="number" name="unit_price" class="form-control"
+                                            value="<?php echo $unitprice; ?>">
                                     </td>
                                     <td><input type="number" class="form-control" autocomplete="off"></td>
 
@@ -142,7 +110,7 @@
                         </tr>
                     </table>
                 </div>
-            </fo rm>
+                </fo rm>
         </div>
         <script>
         var d = new Date();
