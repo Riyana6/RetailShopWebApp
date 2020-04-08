@@ -97,26 +97,23 @@
                 </div>
 
                 <table>
-                    <td align="right">
-                        <tr><label>Subtotal: </label><input
-                                value="<?php echo $invoiceValues['order_total_before_tax']; ?>" type="number"
-                                class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
-                        </tr>
-                        <tr><label>Discount: </label><input value="<?php echo $invoiceValues['order_total_tax']; ?>"
-                                type="number" class="form-control" name="taxAmount" id="taxAmount"
-                                placeholder="Tax Amount">
-                        </tr>
-                        <tr><label>Total: </label><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>"
-                                type="number" class="form-control" name="totalAftertax" id="totalAftertax"
-                                placeholder="Total">
-                        </tr>
-                        <tr><label>Amount Paid: </label><input
-                                value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
-                                class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
-                        </tr>
-                        <tr>
-                        </tr>
-                    </td>
+                    <tr><label>Subtotal: </label><input value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
+                            type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
+                    </tr>
+                    <tr><label>Discount: </label><input value="<?php echo $invoiceValues['order_total_tax']; ?>"
+                            type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
+                    </tr>
+                    <tr><label>Total: </label><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>"
+                            type="number" class="form-control" name="totalAftertax" id="totalAftertax"
+                            placeholder="Total">
+                    </tr>
+                    <tr><label>Amount Paid: </label><input value="<?php echo $invoiceValues['order_amount_paid']; ?>"
+                            type="number" class="form-control" name="amountPaid" id="amountPaid"
+                            placeholder="Amount Paid">
+                    </tr>
+                    <tr>
+                    </tr>
+
                 </table>
             </div>
 
