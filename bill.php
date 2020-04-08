@@ -1,9 +1,37 @@
 <?php
 
-	
+$connection = mysqli_connect("localhost","root","","reg");
    
+$search=$_POST['Add'];
+if($search){
+	$query= "select unit_price , item_code  from item where item_name = $itemname limit 1";
+	$result = mysqli_query($connection,$query);
+	while($row = mysqli_fetch_array($result))
+	{
+		echo $row['item_code'];
+		echo $row['unit_price'];
+   }
+}
 
-    if(isset($_POST['Add']))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* if(isset($_POST['Add']))
     {
         $itemname  = $_POST['item_name'];
         $connection = mysqli_connect("localhost","root","","reg");
@@ -33,5 +61,5 @@
 	else{
    			 $itemcode = "";
    			 $unitprice = "";
-		}
+		}*/
 ?>
