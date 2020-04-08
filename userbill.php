@@ -2,17 +2,25 @@
 $connection = mysqli_connect('localhost','root','','reg');
 	
 	
+    $itemname =$_POST['item_name'];
+    if(isset($_POST["Add"]))
+    {
 	
-	if(isset($_POST["Add"])){
 	
-	$itemname =$_POST['item_name'];
 	
-	$query= "select unit_price,item_code from item where item_name='$itemname'";
+	$query= "select unit_price,item_code from item where item_name='$itemname' LIMIT 1";
 	
 	$result = mysqli_query($connection,$query);
 	
-	
+            while($row = mysqli_fetch_array($result))
+             {
+                 $item_code=$row['item_name'];
+                 $unit_price=$row['unit_price'];
+            }
     }
+    mysqli_free_result($result);
+    
+
 	
 ?>
 
@@ -61,10 +69,7 @@ $connection = mysqli_connect('localhost','root','','reg');
                                     <th width="15%">Price</th>
                                     <th width="15%">Total</th>
                                 </tr>
-                                <?php
-                                while($row = mysqli_fetch_array($result))
-                                {
-                                ?>
+
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
                                     <td><input type="text" class="form-control"
