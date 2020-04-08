@@ -111,7 +111,7 @@
                 </tr>
                 </table>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <span class="form-inline">
                     <div class="form-group">
                         <label>Subtotal: </label>
