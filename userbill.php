@@ -2,7 +2,7 @@
 $connection = mysqli_connect('localhost','root','','reg');
 	
 	
-    $itemname =$_POST['item_name'];
+    $ite_mname =$_POST['item_name'];
     if(isset($_POST["Add"]))
     {
 	
@@ -14,12 +14,12 @@ $connection = mysqli_connect('localhost','root','','reg');
 	
             while($row = mysqli_fetch_array($result))
              {
-                 $item_code=$row['item_name'];
+                 $item_code=$row['item_code'];
                  $unit_price=$row['unit_price'];
             }
     }
     mysqli_free_result($result);
-    
+
 
 	
 ?>
@@ -63,25 +63,24 @@ $connection = mysqli_connect('localhost','root','','reg');
                             <table class="table table-bordered table-hover" id="invoiceItem">
                                 <tr>
                                     <th width="2%"></th>
-                                    <th width="15%">Item No</th>
+                                    <th width="15%">Item Code</th>
                                     <th width="38%">Item Name</th>
                                     <th width="15%">Quantity</th>
-                                    <th width="15%">Price</th>
+                                    <th width="15%">Unit Price</th>
                                     <th width="15%">Total</th>
                                 </tr>
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="text" class="form-control"
+                                    <td><input type="text"name="item_code" class="form-control"
                                             autocomplete="off"><?php echo $row["item_code"]; ?></td>
-                                    <td><input type="text" class="form-control" autocomplete="on"></td>
-                                    <td><input type="number" class="form-control quantity" autocomplete="off"></td>
-                                    <td><input type="number" class="form-control price"
+                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
+                                    <td><input type="number" name="quantity" class="form-control quantity" autocomplete="off"></td>
+                                    <td><input type="number" name="unit_price" class="form-control price"
                                             autocomplete="off"><?php echo $row["unit_price"]; ?></td>
                                     <td><input type="number" class="form-control total" autocomplete="off"></td>
 
                                 </tr>
-                                <?php }?>
                             </table>
                         </div>
 
