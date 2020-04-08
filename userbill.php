@@ -92,26 +92,25 @@ $connection = mysqli_connect('localhost','root','','reg');
                     <table cellpadding="5">
                         <tr>
                             <td><label>Subtotal: </label></td>
-                            <td><input width="30" value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
-                                    type="number" class="form-control" name="subTotal" id="subTotal"
+                            <td><input width="30" type="number" class="form-control" name="subTotal" id="subTotal"
                                     placeholder="Subtotal">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Discount: </label></td>
-                            <td><input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number"
-                                    class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount"></td>
+                            <td><input type="number" class="form-control" name="taxAmount" id="taxAmount"
+                                    placeholder="Tax Amount"></td>
                         </tr>
                         <tr>
                             <td><label>Total: </label></td>
-                            <td><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number"
-                                    class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+                            <td><input type="number" class="form-control" name="totalAftertax" id="totalAftertax"
+                                    placeholder="Total">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Amount Paid: </label></td>
-                            <td><input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
-                                    class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
+                            <td><input type="number" class="form-control" name="amountPaid" id="amountPaid"
+                                    placeholder="Amount Paid">
                             </td>
                         </tr>
                     </table>
