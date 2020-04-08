@@ -73,12 +73,12 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="text" name="item_code" class="form-control">
+                                    <td><input type="text" name="item_code" class="form-control"><?php echo $itemcode; ?>
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
                                     <td><input type="number" name="quantity" class="form-control">
                                     </td>
-                                    <td><input type="number" name="unit_price" class="form-control">
+                                    <td><input type="number" name="unit_price" class="form-control"><?php echo $unitprice; ?>
                                     </td>
                                     <td><input type="number" class="form-control" autocomplete="off"></td>
 
