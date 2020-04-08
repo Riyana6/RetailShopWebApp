@@ -73,6 +73,24 @@
                         <button class="btn btn-success" id="addRows" type="button">+ Add More</button>
                     </div>
                 </div>
+                <div align="right">
+                    <button type="button" name="add_row" id="add_row" class="btn btn-success btn-xs">+</button>
+                </div>
+                </td>
+                </tr>
+                <tr>
+                    <td width="64%" align="right" style="color:red"><b>Discount (%)</td>
+                    <td><input type="text" name="item_discount[]" id="item_discount1" class="form-control input-sm" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right" style="color:darkblue"><b>Total</td>
+                    <td align="right"><b><span id="final_total_amt"></span></b></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
 
 
                 <tr>
@@ -93,7 +111,6 @@
                 </tr>
                 </table>
             </div>
-
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <span class="form-inline">
                     <div class="form-group">
@@ -146,9 +163,7 @@
                     </div>
                 </span>
             </div>
-
         </div>
-
         </form>
         </p>
 
