@@ -1,3 +1,24 @@
+<?php
+$connection = mysqli_connect('localhost','root','','reg');
+	
+	
+	
+	if(isset($_POST["Add"])){
+	
+	$itemname =$_POST['item_name'];
+	
+	$query= "select unit_price,item_code from item where item_name='$itemname'";
+	
+	$result = mysqli_query($connection,$query);
+	
+	$row = mysqli_fetch_array($result);
+	
+    }
+	
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -26,15 +47,15 @@
             </div>
         </div>
         <div class="col-sm-9">
+            <form method="post" id="invoice_form">
 
-            <div class="card">
-                <h2 class="card-title" align="center">Create A Bill</h2>
-                <div class="card-body">
-                    <form method="post" id="invoice_form">
+                <div class="card">
+                    <h2 class="card-title" align="center">Create A Bill</h2>
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="invoiceItem">
                                 <tr>
-                                    <th width="2%"><input id="checkAll" class="formcontrol" type="checkbox"></th>
+                                    <th width="2%"></th>
                                     <th width="15%">Item No</th>
                                     <th width="38%">Item Name</th>
                                     <th width="15%">Quantity</th>
@@ -44,83 +65,85 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="text" value="<?php echo $invoiceItem["item_code"]; ?>"
+                                    <td><input type="text" value="<?php echo $row.["item_code"]; ?>"
                                             name="productCode[]" id="productCode_<?php echo $count; ?>"
                                             class="form-control" autocomplete="off"></td>
-                                    <td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>"
-                                            name="productName[]" id="productName_<?php echo $count; ?>"
+                                    <td><input type="text" name="productName[]" id="productName_<?php echo $count; ?>"
                                             class="form-control" autocomplete="off"></td>
-                                    <td><input type="number" value="<?php echo $invoiceItem["item_quantity"]; ?>"
-                                            name="quantity[]" id="quantity_<?php echo $count; ?>"
+                                    <td><input type="number" name="quantity[]" id="quantity_<?php echo $count; ?>"
                                             class="form-control quantity" autocomplete="off"></td>
-                                    <td><input type="number" value="<?php echo $invoiceItem["unit_price"]; ?>"
-                                            name="price[]" id="price_<?php echo $count; ?>" class="form-control price"
+                                    <td><input type="number" value="<?php echo $row.["unit_price"]; ?>" name="price[]"
+                                            id="price_<?php echo $count; ?>" class="form-control price"
                                             autocomplete="off"></td>
-                                    <td><input type="number"
-                                            value="<?php echo $invoiceItem["order_item_final_amount"]; ?>"
-                                            name="total[]" id="total_<?php echo $count; ?>" class="form-control total"
-                                            autocomplete="off"></td>
-                                    <input type="hidden" value="<?php echo $invoiceItem['item_code']; ?>"
+                                    <td><input type="number" name="total[]" id="total_<?php echo $count; ?>"
+                                            class="form-control total" autocomplete="off"></td>
+                                    <input type="hidden" value="<?php echo $row.['item_code']; ?>"
                                         class="form-control" name="item_code[]">
                                 </tr>
                                 <?php ?>
                             </table>
                         </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <button class="btn btn-danger delete" id="removeRows" type="button">Delete</button>
-                            <button class="btn btn-success" id="addRows" type="button">Add More</button>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <button class="btn btn-danger delete" id="removeRows" type="button">Delete</button>
+                                <button class="btn btn-success" id="addRows" name="Add" type="button">Add More</button>
+                            </div>
                         </div>
+
                     </div>
 
+                    <table cellpadding="5">
+                        <tr>
+                            <td><label>Subtotal: </label></td>
+                            <td><input width="30" value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
+                                    type="number" class="form-control" name="subTotal" id="subTotal"
+                                    placeholder="Subtotal">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Discount: </label></td>
+                            <td><input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number"
+                                    class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Total: </label></td>
+                            <td><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number"
+                                    class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Amount Paid: </label></td>
+                            <td><input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
+                                    class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
+                            </td>
+                        </tr>
+                    </table>
+                    <table cellpadding="4">
+                        <tr>
+
+                            <td colspan="3" align="center">
+                                <input type="hidden" name="total_item" id="total_item" value="1" />
+                                <input type="submit" name="create_ebill" id="create_ebill"
+                                    class="btn btn-secondary btn-sm" value="E-Bill" />
+                                <input type="button" name="print" id="print" class="btn btn-info btn-sm"
+                                    value="Print" />
+                                <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
+                                    value="Text" />
+                                <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
+                                    value="Cancel" />
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-
-                <table cellpadding="5">
-                    <tr>
-                        <td><label>Subtotal: </label></td>
-                        <td><input width="30" value="<?php echo $invoiceValues['order_total_before_tax']; ?>"
-                                type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Discount: </label></td>
-                        <td><input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number"
-                                class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount"></td>
-                    </tr>
-                    <tr>
-                        <td><label>Total: </label></td>
-                        <td><input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number"
-                                class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total"></td>
-                    </tr>
-                    <tr>
-                        <td><label>Amount Paid: </label></td>
-                        <td><input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number"
-                                class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid"></td>
-                    </tr>
-                </table>
-                <table cellpadding="4">
-                    <tr>
-
-                        <td colspan="3" align="center">
-                            <input type="hidden" name="total_item" id="total_item" value="1" />
-                            <input type="submit" name="create_ebill" id="create_ebill" class="btn btn-secondary btn-sm"
-                                value="E-Bill" />
-                            <input type="button" name="print" id="print" class="btn btn-info btn-sm" value="Print" />
-                            <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
-                                value="Text" />
-                            <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                value="Cancel" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            </form>
         </div>
         <script>
         var d = new Date();
         document.getElementById("order_date").innerHTML = d;
         </script>
     </div>
+
 </body>
 
 </html>
