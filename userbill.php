@@ -2,7 +2,7 @@
 $connection = mysqli_connect('localhost','root','','reg');
 	
 	
-    $ite_mname =$_POST['item_name'];
+    $item_name =$_POST['item_name'];
     if(isset($_POST["Add"]))
     {
 	
@@ -18,7 +18,7 @@ $connection = mysqli_connect('localhost','root','','reg');
                  $unit_price=$row['unit_price'];
             }
     }
-    mysqli_free_result($result);
+  
 
 
 	
