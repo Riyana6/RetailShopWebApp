@@ -34,8 +34,16 @@ if($search){
    if(isset($_POST['Add']))
     {
         $itemname  = $_POST['item_name'];
-        $connection = mysqli_connect("localhost","root","","reg");
-		$query= "select unit_price , item_code ,item_name  from item where item_name = $itemname limit 1 ALTER TABLE item MODIFY item_code TEXT NOT NULL";
+		$connection = mysqli_connect("localhost","root","","reg");
+		if ($mysqli -> connect_errno) {
+			echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+			exit();
+		  }
+		  
+		$query= "select unit_price , item_code , item_name  from item where item_name = $itemname limit 1";
+		if (!$query) {
+			echo("Error description: " . $mysqli -> error);
+		  }
 	
 		$result = mysqli_query($connection,$query);
 		if(mysqli_num_rows($result) > 0)
