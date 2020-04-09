@@ -44,7 +44,7 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input type="number" name="item_code" class="form-control"
+                                    <td><input name="item_code" class="form-control"
                                             value="<?php echo $itemcode; ?>">
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
@@ -61,7 +61,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <button class="btn btn-danger delete" id="remove" type="button">Delete</button>
+                                <button class="btn btn-danger " id="remove" type="button">Delete</button>
                                 <button class="btn btn-success" id="add" name="Add" type="button">Add</button>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                         <tr>
                             <td><label>Subtotal: </label></td>
                             <td><input width="30" type="number" class="form-control" name="subTotal" id="subTotal"
-                                    placeholder="Subtotal">
+                                    placeholder="Subtotal" />
                             </td>
                         </tr>
                         <tr>
