@@ -1,7 +1,7 @@
 <?php
-if(isset($_POST['add']))
+if(isset($_GET['add']))
     {
-        $itemname  = $_POST['item_name'];
+        $itemname  = $_GET['item_name'];
 		$connection = mysqli_connect("localhost","root","","reg");
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());

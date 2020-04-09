@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="col-sm-9">
-            <form action="bill.php" method="post" id="invoice_form">
+            <form action="bill.php" method="GET" >
 
                 <div class="card">
                     <h2 class="card-title" align="center">Create A Bill</h2>
@@ -44,7 +44,7 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox" /></td>
-                                    <td><input type="text" name="item_code" class="form-control"
+                                    <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on" />
