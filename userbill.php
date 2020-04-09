@@ -43,17 +43,17 @@
                                 </tr>
 
                                 <tr>
-                                    <td><input class="itemRow" type="checkbox"></td>
+                                    <td><input class="itemRow" type="checkbox" /></td>
                                     <td><input type="number" name="item_code" class="form-control"
-                                            value="<?php echo $itemcode; ?>">
+                                            value="<?php echo $itemcode; ?>"/> 
                                     </td>
-                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
-                                    <td><input type="number" name="quantity" class="form-control">
+                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on" /></td>
+                                    <td><input type="number" name="quantity" class="form-control" />
                                     </td>
                                     <td><input type="number" name="unit_price" class="form-control"
-                                            value="<?php echo $unitprice; ?>">
+                                            value="<?php echo $unitprice; ?>" />
                                     </td>
-                                    <td><input type="number" class="form-control" autocomplete="off"></td>
+                                    <td><input type="number" class="form-control" autocomplete="off" /></td>
 
                                 </tr>
                             </table>
