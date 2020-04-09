@@ -67,6 +67,7 @@ if($search){
   
 	}
 	else{
+		echo "error";
    			 $itemcode = "";
    			 $unitprice = "";
 		}
