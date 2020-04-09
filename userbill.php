@@ -44,7 +44,7 @@
 
                                 <tr>
                                     <td><input class="itemRow" type="checkbox"></td>
-                                    <td><input name="item_code" class="form-control"
+                                    <td><input type="text" name="item_code" class="form-control"
                                             value="<?php echo $itemcode; ?>">
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on"></td>
