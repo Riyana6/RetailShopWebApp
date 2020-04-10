@@ -70,6 +70,24 @@ if(isset($_GET['add']))
                 </center>
             </div>
         </div>
+        <script>
+function myFunction() {
+  var table = document.getElementById("invoiceItem");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  
+  cell1.innerHTML = "NEW ";
+  cell2.innerHTML = "NEW ";
+  cell3.innerHTML = "NEW ";
+  cell4.innerHTML = "NEW ";
+  cell5.innerHTML = "NEW ";
+  
+}
+</script>
         <div class="col-sm-9">
             <form action="userbill.php" method="GET">
 
@@ -111,7 +129,7 @@ if(isset($_GET['add']))
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
-                                <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
+                                <button class="btn btn-success" id="add" name="add" type="submit" onclick="myFunction()">Add</button>
                             </div>
                         </div>
 
