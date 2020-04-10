@@ -102,7 +102,7 @@ if(isset($_GET['add']))
 
 
         <div class="col-sm-9">
-            <form action="userbill.php" method="GET">
+            <form action="userbill.php" method="GET" name="add_name" id="add_name">
 
                 <div class="card">
                     <h2 class="card-title" align="center">Create A Bill</h2>
