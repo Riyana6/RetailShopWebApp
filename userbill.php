@@ -47,6 +47,8 @@ if(isset($_GET['add']))
 <html>
 
 <head>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -108,7 +110,7 @@ if(isset($_GET['add']))
                     <h2 class="card-title" align="center">Create A Bill</h2>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover" id="invoiceItem">
+                            <table class="table table-bordered table-hover" id="invoiceItem" id="dynamic_field">
                                 <tr>
                                     <th width="2%"></th>
                                     <th width="15%">Item Code</th>
