@@ -87,7 +87,7 @@ if(isset($_GET['add']))
                                     <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
                                     </td>
-                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname ?>" />
+                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
                                     </td>
                                     <td><input type="number" name="quantity" class="form-control" />
                                     </td>
