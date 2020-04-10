@@ -105,7 +105,7 @@ function myFunction() {
                                     <th width="15%">Total</th>
                                 </tr>
 
-                                <tr name="new_row" value="<?php echo $newrow; ?>">
+                                <tr>
                                     <td><input class="itemRow" type="checkbox" /></td>
                                     <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
