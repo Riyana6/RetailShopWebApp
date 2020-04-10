@@ -94,7 +94,7 @@ if(isset($_GET['add']))
                                     </td>
                                     <td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
                                     </td>
-                                    <td><input type="number" name="quantity" class="form-control" value="<?php echo $quantity; ?>"/>
+                                    <td><input type="number" name="quantity" class="form-control" autocomplete="off" value="<?php echo $quantity; ?>"/>
                                     </td>
                                     <td><input type="number" name="unit_price" class="form-control"
                                             value="<?php echo $unitprice; ?>" />
