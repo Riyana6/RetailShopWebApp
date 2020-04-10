@@ -87,7 +87,7 @@ if(isset($_GET['add']))
                 var button_id = $(this).attr("id");
                 $('#row' + button_id + '').remove();
             });
-            $('#submit').click(function() {
+            $('#add').click(function() {
                 $.ajax({
                     url: "userbill.php",
                     method: "GET",
