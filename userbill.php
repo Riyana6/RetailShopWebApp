@@ -71,7 +71,7 @@ if(isset($_GET['add']))
             </div>
         </div>
         <div class="col-sm-9">
-            <form action="userbill.php" method="GET" >
+            <form action="userbill.php" method="GET">
 
                 <div class="card">
                     <h2 class="card-title" align="center">Create A Bill</h2>
@@ -92,14 +92,17 @@ if(isset($_GET['add']))
                                     <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
                                     </td>
-                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
+                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on"
+                                            value="<?php echo $itemname; ?>" />
                                     </td>
-                                    <td><input type="number" name="quantity" class="form-control" autocomplete="off" value="<?php echo $quantity; ?>"/>
+                                    <td><input type="number" name="quantity" class="form-control" autocomplete="off"
+                                            value="<?php echo $quantity; ?>" />
                                     </td>
                                     <td><input type="number" name="unit_price" class="form-control"
                                             value="<?php echo $unitprice; ?>" />
                                     </td>
-                                    <td><input type="number"  name=total class="form-control" autocomplete="off" value="<?php echo $total; ?>" /></td>
+                                    <td><input type="number" name=total class="form-control" autocomplete="off"
+                                            value="<?php echo $total; ?>" /></td>
 
                                 </tr>
                             </table>
@@ -118,7 +121,7 @@ if(isset($_GET['add']))
                         <tr>
                             <td><label>Subtotal: </label></td>
                             <td><input width="30" type="number" class="form-control" name="subTotal" id="subTotal"
-                                    placeholder="Subtotal" />
+                                    placeholder="Subtotal" value="<?php echo $total ?>" />
                             </td>
                         </tr>
                         <tr>
@@ -129,7 +132,7 @@ if(isset($_GET['add']))
                         <tr>
                             <td><label>Total: </label></td>
                             <td><input type="number" class="form-control" name="totalAftertax" id="totalAftertax"
-                                    placeholder="Total">
+                                    value="<?php echo $total ?>" placeholder="Total">
                             </td>
                         </tr>
                         <tr>
