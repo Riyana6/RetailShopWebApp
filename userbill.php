@@ -73,33 +73,7 @@ if(isset($_GET['add']))
             </div>
         </div>
 
-        <script>
-        $(document).ready(function() {
-            var i = 1;
-            $('#add').click(function() {
-                i++;
-                $('#dynamic_field').append('<tr id="row' + i +
-                    '"><td><button type="button" name="remove" id="' + i +
-                    '" class="btn btn-danger btn_remove">X</button></td><td><input type="number" name="item_code" class="form-control autocomplete="off" /></td><td><input type="text" name="item_name" class="form-control" autocomplete="on" /></td><td><input type="number" name="quantity" class="form-control" autocomplete="off" /></td><td><input type="number" name="unit_price" class="form-control" autocomplete="off" /></td><td><input type="number" name="total" class="form-control" autocomplete="off"/></td></tr>'
-                );
-            });
-            $(document).on('click', '.btn_remove', function() {
-                var button_id = $(this).attr("id");
-                $('#row' + button_id + '').remove();
-            });
-            $('#add').click(function() {
-                $.ajax({
-                    url: "userbill.php",
-                    method: "GET",
-                    data: $('#add_name').serialize(),
-                    success: function(data) {
-                        alert(data);
-                        $('#add_name')[0].reset();
-                    }
-                });
-            });
-        });
-        </script>
+        
 
 
 
