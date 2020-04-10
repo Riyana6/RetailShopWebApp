@@ -53,7 +53,6 @@ if(isset($_GET['add']))
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-    <script src="js/jquery.min.js"></script><script src="js/bootstrap.min.js"></script><script src="js/jquery.dataTables.min.js"></script><script src="js/dataTables.bootstrap.min.js"></script><link rel="stylesheet"href="css/dataTables.bootstrap.min.css">
     </style>
 </head>
 
@@ -119,7 +118,9 @@ if(isset($_GET['add']))
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
                                 <button class="btn btn-success" id="add" name="add" type="submit"
-                                    onclick="myFunction()">Add</button>
+                                    >Add</button>
+                                    <button class="btn btn-success" id="newrow" name="newrow" type="submit"
+                                    onclick="myFunction()">New Row</button>
                             </div>
                         </div>
 
