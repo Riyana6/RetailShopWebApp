@@ -70,24 +70,37 @@ if(isset($_GET['add']))
                 </center>
             </div>
         </div>
+
         <script>
-function myFunction() {
-  var table = document.getElementById("invoiceItem");
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  
-  cell1.innerHTML = "NEW ";
-  cell2.innerHTML = "NEW ";
-  cell3.innerHTML = "NEW ";
-  cell4.innerHTML = "NEW ";
-  cell5.innerHTML = "NEW ";
-  
-}
-</script>
+        $(document).ready(function() {
+            var i = 1;
+            $('#add').click(function() {
+                i++;
+                $('#dynamic_field').append('<tr id="row' + i +
+                    '"><td><button type="button" name="remove" id="' + i +
+                    '" class="btn btn-danger btn_remove">X</button></td><td><input type="number" name="item_code" class="form-control autocomplete="off" /></td><td><input type="text" name="item_name" class="form-control" autocomplete="on" /></td><td><input type="number" name="quantity" class="form-control" autocomplete="off" /></td><td><input type="number" name="unit_price" class="form-control" autocomplete="off" /></td><td><input type="number" name="total" class="form-control" autocomplete="off"/></td></tr>'
+                );
+            });
+            $(document).on('click', '.btn_remove', function() {
+                var button_id = $(this).attr("id");
+                $('#row' + button_id + '').remove();
+            });
+            $('#submit').click(function() {
+                $.ajax({
+                    url: "userbill.php",
+                    method: "GET",
+                    data: $('#add_name').serialize(),
+                    success: function(data) {
+                        alert(data);
+                        $('#add_name')[0].reset();
+                    }
+                });
+            });
+        });
+        </script>
+
+
+
         <div class="col-sm-9">
             <form action="userbill.php" method="GET">
 
@@ -129,7 +142,8 @@ function myFunction() {
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
-                                <button class="btn btn-success" id="add" name="add" type="submit" onclick="myFunction()">Add</button>
+                                <button class="btn btn-success" id="add" name="add" type="submit"
+                                    onclick="myFunction()">Add</button>
                             </div>
                         </div>
 
