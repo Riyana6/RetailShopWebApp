@@ -2,6 +2,7 @@
 if(isset($_GET['add']))
     {
         $itemname  = $_GET['item_name'];
+        $quantity  = $_GET['quantity'];
 		$connection = mysqli_connect("localhost","root","","reg");
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
@@ -18,6 +19,7 @@ if(isset($_GET['add']))
                 $itemname  = $row['item_name'];
                  $itemcode =$row['item_code'];
                  $unitprice =$row['unit_price'];
+                 $total =$row['unit_price'] * $quantity;
             }
             
 		}else
@@ -97,7 +99,7 @@ if(isset($_GET['add']))
                                     <td><input type="number" name="unit_price" class="form-control"
                                             value="<?php echo $unitprice; ?>" />
                                     </td>
-                                    <td><input type="number" class="form-control" autocomplete="off" /></td>
+                                    <td><input type="number"  name=total class="form-control" autocomplete="off" value="<?php echo $total; ?>" /></td>
 
                                 </tr>
                             </table>
