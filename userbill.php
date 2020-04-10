@@ -34,7 +34,7 @@ if(isset($_GET['add']))
   
 	}
 	else{
-		echo "error";
+		
    			 $itemcode = "";
                 $unitprice = "";
                 $itemname  = "";
