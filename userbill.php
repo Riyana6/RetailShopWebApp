@@ -40,86 +40,64 @@ if(isset($_GET['add']))
    			 $itemcode = "";
                 $unitprice = "";
                 $itemname  = "";
-        }
-        
-
-
-        $(document).ready(function()){
-            $(document).on('click', '#checkAll', function() {          	
-                $(".itemRow").prop("checked", this.checked);
-            });	
-            $(document).on('click', '.itemRow', function() {  	
-                if ($('.itemRow:checked').length == $('.itemRow').length) {
-                    $('#checkAll').prop('checked', true);
-                } else {
-                    $('#checkAll').prop('checked', false);
-                }
-            });  
-            var count = $(".itemRow").length;
-            $(document).on('click', '#addRows', function() { 
-                count++;
-                var htmlRows = '';
-                htmlRows += '<tr>';
-                htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
-                htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
-                htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
-                htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
-                htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
-                htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
-                htmlRows += '</tr>';
-                $('#invoiceItem').append(htmlRows);
-            }); 
-            $(document).on('click', '#removeRows', function(){
-                $(".itemRow:checked").each(function() {
-                    $(this).closest('tr').remove();
-                });
-                $('#checkAll').prop('checked', false);
-                calculateTotal();
-            });		
-            $(document).on('blur', "[id^=quantity_]", function(){
-                calculateTotal();
-            });	
-            $(document).on('blur', "[id^=price_]", function(){
-                calculateTotal();
-            });	
-            $(document).on('blur', "#taxRate", function(){		
-                calculateTotal();
-            });	
-            $(document).on('blur', "#amountPaid", function(){
-                var amountPaid = $(this).val();
-                var totalAftertax = $('#totalAftertax').val();	
-                if(amountPaid && totalAftertax) {
-                    totalAftertax = totalAftertax-amountPaid;			
-                    $('#amountDue').val(totalAftertax);
-                } else {
-                    $('#amountDue').val(totalAftertax);
-                }	
-            });	
-            $(document).on('click', '.deleteInvoice', function(){
-                var id = $(this).attr("id");
-                if(confirm("Are you sure you want to remove this?")){
-                    $.ajax({
-                        url:"action.php",
-                        method:"POST",
-                        dataType: "json",
-                        data:{id:id, action:'delete_invoice'},				
-                        success:function(response) {
-                            if(response.status == 1) {
-                                $('#'+id).closest("tr").remove();
-                            }
-                        }
-                    });
-                } else {
-                    return false;
-                }
-            });
-        });
+		}
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+
+<SCRIPT language="javascript">
+		function addRow(tableID) {
+
+			var table = document.getElementById(tableID);
+
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+
+			var cell1 = row.insertCell(0);
+			var element1 = document.createElement("input");
+			element1.type = "checkbox";
+			element1.name="chkbox[]";
+			cell1.appendChild(element1);
+
+			var cell2 = row.insertCell(1);
+			cell2.innerHTML = rowCount + 1;
+
+			var cell3 = row.insertCell(2);
+			var element2 = document.createElement("input");
+			element2.type = "text";
+			element2.name = "txtbox[]";
+			cell3.appendChild(element2);
+
+
+		}
+
+		function deleteRow(tableID) {
+			try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+
+			for(var i=0; i<rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if(null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
+					i--;
+				}
+
+
+			}
+			}catch(e) {
+				alert(e);
+			}
+		}
+
+	</SCRIPT>
+
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -145,7 +123,7 @@ if(isset($_GET['add']))
             </div>
         </div>
 
-
+        
 
 
 
@@ -190,8 +168,9 @@ if(isset($_GET['add']))
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
-                                <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
-                                <button class="btn btn-success" id="newrow" name="newrow" type="submit"
+                                <button class="btn btn-success" id="add" name="add" type="submit"
+                                    >Add</button>
+                                    <button class="btn btn-success" id="newrow" name="newrow" type="submit"
                                     onclick="myFunction()">New Row</button>
                             </div>
                         </div>
