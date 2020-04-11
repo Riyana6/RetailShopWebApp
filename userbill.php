@@ -44,24 +44,7 @@ if(isset($_GET['add']))
         
 
 
-        if(isset($_GET['newrow']))
-        {
-            echo "<tr>
-            <td><input class="itemRow" type="checkbox" /></td>
-            <td><input type="number" name="item_code" class="form-control"
-                    value="<?php echo $itemcode ?>" />
-</td>
-<td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
-</td>
-<td><input type="number" name="quantity" class="form-control" autocomplete="off" value="<?php echo $quantity; ?>" />
-</td>
-<td><input type="number" name="unit_price" class="form-control" value="<?php echo $unitprice; ?>" />
-</td>
-<td><input type="number" name=total class="form-control" autocomplete="off" value="<?php echo $total; ?>" /></td>
-
-</tr>";
-}
-
+      
 
 
 ?>
@@ -108,16 +91,17 @@ if(isset($_GET['add']))
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="invoiceItem" id="dynamic_field">
                                 <tr>
-                                    <th width="2%"></th>
+
                                     <th width="15%">Item Code</th>
-                                    <th width="38%">Item Name</th>
+                                    <th width="36%">Item Name</th>
                                     <th width="15%">Quantity</th>
                                     <th width="15%">Unit Price</th>
                                     <th width="15%">Total</th>
+                                    <th width="4%">AddMore</th>
                                 </tr>
 
                                 <tr>
-                                    <td><input class="itemRow" type="checkbox" /></td>
+
                                     <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
                                     </td>
@@ -132,6 +116,8 @@ if(isset($_GET['add']))
                                     </td>
                                     <td><input type="number" name=total class="form-control" autocomplete="off"
                                             value="<?php echo $total; ?>" /></td>
+                                    <td><button class="btn btn-success" id="newrow" name="newrow" type="submit"
+                                            onclick="myFunction()">New Row</button></td>
 
                                 </tr>
                             </table>
@@ -141,8 +127,7 @@ if(isset($_GET['add']))
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
                                 <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
-                                <button class="btn btn-success" id="newrow" name="newrow" type="submit"
-                                    onclick="myFunction()">New Row</button>
+
                             </div>
                         </div>
 
