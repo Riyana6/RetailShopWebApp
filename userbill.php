@@ -180,7 +180,7 @@ if(isset($_GET['add']))
             var i = 1;
             $('#newrow').click(function() {
                 i++;
-                $('#dynamic_field').append('<tr id="row'+i+'"><td><input type = "number" name = "item_code" class = "form-control" value="<?php echo $itemcode ?>" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" value="<?php echo $itemname ?>" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" value="<?php echo $unitprice ?>"/></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" value="<?php echo $total ?>"/></td><td><button class = "btn btn-danger btn_remove" id = "'+i+'" name = "remove" type = "submit" > X </button></td></tr>');
+                $('#dynamic_field').append('<tr id="row'+i+'"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "'+i+'" name = "remove" type = "submit" > X </button></td></tr>');
             });
 
             $(document).on('click', '.btn_remove', function() {
