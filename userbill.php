@@ -114,7 +114,7 @@ if(isset($_GET['add']))
                                     <td><input type="number" name="unit_price" class="form-control"
                                             value="<?php echo $unitprice; ?>" />
                                     </td>
-                                    <td><input type="number" name=total class="form-control" autocomplete="off"
+                                    <td><input type="number" name="total" class="form-control" autocomplete="off"
                                             value="<?php echo $total; ?>" /></td>
                                     <td><button class="btn btn-success" id="newrow" name="newrow" type="submit"
                                             onclick="myFunction()">+</button></td>
@@ -161,7 +161,7 @@ if(isset($_GET['add']))
                     <table cellpadding="4">
                         <tr>
 
-                            <td colspan="3" align="center">
+                            <td colspan="3" >
                                 <input type="hidden" name="total_item" id="total_item" value="1" />
                                 <input type="submit" name="create_ebill" id="create_ebill"
                                     class="btn btn-secondary btn-sm" value="E-Bill" />
@@ -192,24 +192,24 @@ $(document).ready(function(){
     var i=1;
     $('#add').click(function(){
         i++;
-        $('#dynaminc_field').append('<tr id="row'+i+'">
+        $('#dynaminc_field').append('<tr>
 
 <td><input type="number" name="item_code" class="form-control"
-        />
+        value="<?php echo $itemcode ?>" />
 </td>
 <td><input type="text" name="item_name" class="form-control" autocomplete="on"
-       />
+        value="<?php echo $itemname; ?>" />
 </td>
 <td><input type="number" name="quantity" class="form-control" autocomplete="off"
-        />
+        value="<?php echo $quantity; ?>" />
 </td>
 <td><input type="number" name="unit_price" class="form-control"
-        />
+        value="<?php echo $unitprice; ?>" />
 </td>
-<td><input type="number" name=total class="form-control" autocomplete="off"
-         /></td>
-<td><button class="btn btn-danger btn_remove" id="'+i+'" name="remove" type="submit"
-        onclick="myFunction()">X</button></td>
+<td><input type="number" name="total" class="form-control" autocomplete="off"
+        value="<?php echo $total; ?>" /></td>
+<td><button class="btn btn-success" id="newrow" name="newrow" type="submit"
+        onclick="myFunction()">+</button></td>
 
 </tr>'});
 
