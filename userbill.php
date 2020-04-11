@@ -47,8 +47,6 @@ if(isset($_GET['add']))
 <html>
 
 <head>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -110,7 +108,7 @@ if(isset($_GET['add']))
                                     </td>
                                     <td><input type="number" name="total" class="form-control" autocomplete="off"
                                             value="<?php echo $total; ?>" /></td>
-                                    <td><button class="btn btn-success" id="newrow" name="newrow" type="submit">+</button></td>
+                                    <td><button class="btn btn-success" id="newrow" name="newrow" type="button">+</button></td>
 
                                 </tr>
                             </table>
@@ -175,29 +173,22 @@ if(isset($_GET['add']))
         document.getElementById("order_date").innerHTML = d;
         </script>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var i = 1;
+            $('#newrow').click(function() {
+                i++;
+                $('#dynamic_field').append('<tr id="row'+i+'"><td><input type = "number" name = "item_code" class = "form-control" value="<?php echo $itemcode ?>" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" value="<?php echo $itemname ?>" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" value="<?php echo $unitprice ?>"/></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" value="<?php echo $total ?>"/></td><td><button class = "btn btn-danger btn_remove" id = "'+i+'" name = "remove" type = "submit" > X </button></td></tr>');
+            });
 
+            $(document).on('click', '.btn_remove', function() {
+                var button_id = $(this).attr("id");
+                $("#row" + button_id + "").remove();
+            });               
+        });
+    </script>
 </body>
 
 </html>
-
-<script>
-$(document).ready(function() {
-            var i = 1;
-            $('#newrow').click(function() {
-                        i++;
-                        $('#dynamic_field').append('<tr id="row'+i+'"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "+i+" name = "remove" type = "submit" > X </button></td></tr>');
-                        });
-                            $(document).on('click', '.btn_remove', function() {
-                                var button_id = $(this).attr("id");
-                                $("#row" + button_id + "").remove();
-                            });
-
-
-
-
-            
-            
-            );
-
-                        
-});
