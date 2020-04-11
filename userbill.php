@@ -17,9 +17,9 @@ if(isset($_GET['add']))
             while($row = mysqli_fetch_array($result))
              {
                 $itemname  = $row['item_name'];
-                 $itemcode =$row['item_code'];
-                 $unitprice =$row['unit_price'];
-                 $total =$row['unit_price'] * $quantity;
+                $itemcode =$row['item_code'];
+                $unitprice =$row['unit_price'];
+                $total =$row['unit_price'] * $quantity;
             }
             
 		}else
@@ -37,7 +37,7 @@ if(isset($_GET['add']))
 	}
 	else{
 		
-   			 $itemcode = "";
+   			    $itemcode = "";
                 $unitprice = "";
                 $itemname  = "";
         }
@@ -116,9 +116,7 @@ if(isset($_GET['add']))
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <button class="btn btn-danger " id="remove" type="submit">Delete</button>
                                 <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
-
                             </div>
                         </div>
 
