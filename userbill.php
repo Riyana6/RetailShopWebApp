@@ -89,9 +89,9 @@ if(isset($_GET['add']))
                     <h2 class="card-title" align="center">Create A Bill</h2>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover" id="invoiceItem" id="dynamic_field">
+                            <table class="table table-bordered table-hover" id="dynamic_field">
                                 <tr>
-
+ 
                                     <th width="13%">Item Code</th>
                                     <th width="36%">Item Name</th>
                                     <th width="15%">Quantity</th>
@@ -161,7 +161,7 @@ if(isset($_GET['add']))
                     <table cellpadding="4">
                         <tr>
 
-                            <td colspan="3" >
+                            <td colspan="3">
                                 <input type="hidden" name="total_item" id="total_item" value="1" />
                                 <input type="submit" name="create_ebill" id="create_ebill"
                                     class="btn btn-secondary btn-sm" value="E-Bill" />
@@ -188,35 +188,16 @@ if(isset($_GET['add']))
 </html>
 
 <script>
-$(document).ready(function(){
-    var i=1;
-    $('#add').click(function(){
-        i++;
-        $('#dynaminc_field').append('<tr>
-
-<td><input type="number" name="item_code" class="form-control"
-        value="<?php echo $itemcode ?>" />
-</td>
-<td><input type="text" name="item_name" class="form-control" autocomplete="on"
-        value="<?php echo $itemname; ?>" />
-</td>
-<td><input type="number" name="quantity" class="form-control" autocomplete="off"
-        value="<?php echo $quantity; ?>" />
-</td>
-<td><input type="number" name="unit_price" class="form-control"
-        value="<?php echo $unitprice; ?>" />
-</td>
-<td><input type="number" name="total" class="form-control" autocomplete="off"
-        value="<?php echo $total; ?>" /></td>
-<td><button class="btn btn-success" id="newrow" name="newrow" type="submit"
-        onclick="myFunction()">+</button></td>
-
-</tr>'});
+$(document).ready(function() {
+            var i = 1;
+            $('#newrow').click(function() {
+                        i++;
+                        $('#dynaminc_field').append('<tr><td > < input type = "number" name = "item_code" class = "form-control" value = "<?php echo $itemcode ?>" / ></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" value = "<?php echo $itemname; ?>" / ></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" value = "<?php echo $quantity; ?>" / ></td><td><input type = "number" name = "unit_price" class = "form-control" value = "<?php echo $unitprice; ?>" / ></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" value = "<?php echo $total; ?>" / ></td><td> <button class = "btn btn-success" id = "newrow" name = "newrow" type = "submit" onclick = "myFunction()" > + </button></td></tr>'});
 
 
-$(document).on('click', '.btn_remove', function(){
-    var button id = $(this).attr("id");
-    $("#row"+button_id+"").remove();
-});
+                            $(document).on('click', '.btn_remove', function() {
+                                var button id = $(this).attr("id");
+                                $("#row" + button_id + "").remove();
+                            });
 
-}
+                        }
