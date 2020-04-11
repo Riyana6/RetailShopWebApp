@@ -40,64 +40,37 @@ if(isset($_GET['add']))
    			 $itemcode = "";
                 $unitprice = "";
                 $itemname  = "";
-		}
+        }
+        
+
+
+        if(isset($_GET['newrow']))
+        {
+            echo "<tr>";
+            echo "<td><input class="itemRow" type="checkbox" /></td>";
+            echo "<td><input type="number" name="item_code" class="form-control" value="<?php echo $itemcode ?>" />
+</td>";
+echo "<td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
+</td>";
+echo "<td><input type="number" name="quantity" class="form-control" autocomplete="off"
+        value="<?php echo $quantity; ?>" />
+</td>";
+echo "<td><input type="number" name="unit_price" class="form-control" value="<?php echo $unitprice; ?>" />
+</td>";
+echo "<td><input type="number" name=total class="form-control" autocomplete="off" value="<?php echo $total; ?>" /></td>
+";
+
+echo "</tr>";
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-
-<SCRIPT language="javascript">
-		function addRow(tableID) {
-
-			var table = document.getElementById(tableID);
-
-			var rowCount = table.rows.length;
-			var row = table.insertRow(rowCount);
-
-			var cell1 = row.insertCell(0);
-			var element1 = document.createElement("input");
-			element1.type = "checkbox";
-			element1.name="chkbox[]";
-			cell1.appendChild(element1);
-
-			var cell2 = row.insertCell(1);
-			cell2.innerHTML = rowCount + 1;
-
-			var cell3 = row.insertCell(2);
-			var element2 = document.createElement("input");
-			element2.type = "text";
-			element2.name = "txtbox[]";
-			cell3.appendChild(element2);
-
-
-		}
-
-		function deleteRow(tableID) {
-			try {
-			var table = document.getElementById(tableID);
-			var rowCount = table.rows.length;
-
-			for(var i=0; i<rowCount; i++) {
-				var row = table.rows[i];
-				var chkbox = row.cells[0].childNodes[0];
-				if(null != chkbox && true == chkbox.checked) {
-					table.deleteRow(i);
-					rowCount--;
-					i--;
-				}
-
-
-			}
-			}catch(e) {
-				alert(e);
-			}
-		}
-
-	</SCRIPT>
-
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -123,7 +96,7 @@ if(isset($_GET['add']))
             </div>
         </div>
 
-        
+
 
 
 
@@ -168,9 +141,8 @@ if(isset($_GET['add']))
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-danger " id="remove" type="submit">Delete</button>
-                                <button class="btn btn-success" id="add" name="add" type="submit"
-                                    >Add</button>
-                                    <button class="btn btn-success" id="newrow" name="newrow" type="submit"
+                                <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
+                                <button class="btn btn-success" id="newrow" name="newrow" type="submit"
                                     onclick="myFunction()">New Row</button>
                             </div>
                         </div>
