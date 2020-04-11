@@ -164,14 +164,8 @@ if(isset($_GET['add']))
                         </tr>
                     </table>
                 </div>
-            </form>
-        </div>
-        <script>
-        var d = new Date();
-        document.getElementById("order_date").innerHTML = d;
-        </script>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -187,6 +181,18 @@ if(isset($_GET['add']))
             });               
         });
     </script>
+
+
+
+
+            </form>
+        </div>
+        <script>
+        var d = new Date();
+        document.getElementById("order_date").innerHTML = d;
+        </script>
+    </div>
+    
 </body>
 
 </html>
