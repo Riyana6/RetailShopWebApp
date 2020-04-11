@@ -92,12 +92,12 @@ if(isset($_GET['add']))
                             <table class="table table-bordered table-hover" id="invoiceItem" id="dynamic_field">
                                 <tr>
 
-                                    <th width="15%">Item Code</th>
+                                    <th width="13%">Item Code</th>
                                     <th width="36%">Item Name</th>
                                     <th width="15%">Quantity</th>
                                     <th width="15%">Unit Price</th>
                                     <th width="15%">Total</th>
-                                    <th width="4%">AddMore</th>
+                                    <th width="6%">AddMore</th>
                                 </tr>
 
                                 <tr>
@@ -117,7 +117,7 @@ if(isset($_GET['add']))
                                     <td><input type="number" name=total class="form-control" autocomplete="off"
                                             value="<?php echo $total; ?>" /></td>
                                     <td><button class="btn btn-success" id="newrow" name="newrow" type="submit"
-                                            onclick="myFunction()">New Row</button></td>
+                                            onclick="myFunction()">+</button></td>
 
                                 </tr>
                             </table>
@@ -186,3 +186,37 @@ if(isset($_GET['add']))
 </body>
 
 </html>
+
+<script>
+$(document).ready(function(){
+    var i=1;
+    $('#add').click(function(){
+        i++;
+        $('#dynaminc_field').append('<tr id="row'+i+'">
+
+<td><input type="number" name="item_code" class="form-control"
+        />
+</td>
+<td><input type="text" name="item_name" class="form-control" autocomplete="on"
+       />
+</td>
+<td><input type="number" name="quantity" class="form-control" autocomplete="off"
+        />
+</td>
+<td><input type="number" name="unit_price" class="form-control"
+        />
+</td>
+<td><input type="number" name=total class="form-control" autocomplete="off"
+         /></td>
+<td><button class="btn btn-danger btn_remove" id="'+i+'" name="remove" type="submit"
+        onclick="myFunction()">X</button></td>
+
+</tr>'});
+
+
+$(document).on('click', '.btn_remove', function(){
+    var button id = $(this).attr("id");
+    $("#row"+button_id+"").remove();
+});
+
+}
