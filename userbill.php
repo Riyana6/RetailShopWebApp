@@ -47,7 +47,7 @@ if(isset($_GET['add']))
         if(isset($_GET['newrow']))
         {
             echo "<tr>";
-            echo "<td><input class="itemRow" type="checkbox" /></td>";
+            echo "<td><input type="checkbox"; /></td>";
             echo "<td><input type="number" name="item_code" class="form-control" value="<?php echo $itemcode ?>" />
 </td>";
 echo "<td><input type="text" name="item_name" class="form-control" autocomplete="on" value="<?php echo $itemname; ?>" />
