@@ -118,6 +118,13 @@ if(isset($_GET['newrow']))
                                 </tr>
                             </table>
                         </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
+                            </div>
+                        </div>
+
                     </div>
 
                     <table cellpadding="5">
