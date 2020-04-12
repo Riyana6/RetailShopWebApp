@@ -2,7 +2,7 @@
 
 $connection = mysqli_connect("localhost","root","","reg");
 
- $number =  count($_GET["item_name"]);
+ $number =  count($_GET["item_name[]"]);
 if ($number > 1)
 {
 for ($i=0; $i<$number; $i++)
@@ -27,7 +27,7 @@ for ($i=0; $i<$number; $i++)
 
 if(isset($_GET['add']))
     {
-        $itemname  = $_GET['item_name'];
+        $itemname  = $_GET['item_name[]'];
         $quantity  = $_GET['quantity'];
 		
 		if (mysqli_connect_errno()) {
