@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['add']))
+if(isset($_GET['newrow']))
     {
         $itemname  = $_GET['item_name'];
         $quantity  = $_GET['quantity'];
@@ -83,9 +83,8 @@ if(isset($_GET['add']))
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="dynamic_field">
-                                <tr>
-                                    <input type="number" class="form-control" name="billno" id="billno"
-                                        placeholder="Bill No:">
+                                <tr>Bill NO:
+                                    <input type="number" class="form-control" name="billno" id="billno:">
                                 </tr>
                                 <tr>
 
@@ -119,13 +118,6 @@ if(isset($_GET['add']))
                                 </tr>
                             </table>
                         </div>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
-                            </div>
-                        </div>
-
                     </div>
 
                     <table cellpadding="5">
