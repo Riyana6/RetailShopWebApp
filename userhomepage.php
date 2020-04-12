@@ -35,13 +35,13 @@
 
     <h1 class="head">E-Billing Web Application</h1>
 
-    <form class="form3" >
-        
-            <button type="submit" formaction="useradminlogin.php" class="btn btn-primary btn-lg btn-block">Login As
-                Admin</button><br>
-            <button type="submit" formaction="userlogin.php" class="btn btn-secondary btn-lg btn-block">Login As
-                Cashier</button><br>
-       </form>
+    <form class="form3">
+
+        <button type="submit" formaction="useradminlogin.php" class="btn btn-primary btn-lg btn-block">Login As
+            Admin</button><br>
+        <button type="submit" formaction="userlogin.php" class="btn btn-secondary btn-lg btn-block">Login As
+            Cashier</button><br>
+    </form>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
