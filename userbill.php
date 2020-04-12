@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['newrow']))
+if(isset($_GET['add']))
     {
         $itemname  = $_GET['item_name'];
         $quantity  = $_GET['quantity'];
@@ -122,6 +122,7 @@ if(isset($_GET['newrow']))
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <button class="btn btn-success" id="add" name="add" type="submit">Add</button>
+                                <button class="btn btn-success" id="end" name="end" type="submit">Submit</button>
                             </div>
                         </div>
 
@@ -149,6 +150,12 @@ if(isset($_GET['newrow']))
                             <td><label>Amount Paid: </label></td>
                             <td><input type="number" class="form-control" name="amountPaid" id="amountPaid"
                                     placeholder="Amount Paid">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Balance: </label></td>
+                            <td><input type="number" class="form-control" name="balance" id="balance"
+                                    placeholder="Balance">
                             </td>
                         </tr>
                     </table>
