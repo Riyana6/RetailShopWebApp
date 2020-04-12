@@ -71,11 +71,7 @@ if(isset($_GET['add']))
         </div>
 
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <input type="number" class="form-control" name="billno" id="billno" placeholder="Bill No:">
-            </div>
-        </div>
+
 
 
 
@@ -87,6 +83,10 @@ if(isset($_GET['add']))
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="dynamic_field">
+                                <tr>
+                                    <input type="number" class="form-control" name="billno" id="billno"
+                                        placeholder="Bill No:">
+                                </tr>
                                 <tr>
 
                                     <th width="13%">Item Code</th>
