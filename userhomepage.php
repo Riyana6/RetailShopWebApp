@@ -11,7 +11,7 @@
     <style>
     .form3 {
         width: 20%;
-        margin: 25% 25% 25% 25%;
+        margin: 15% 30% 20% 40%;
         align: center;
     }
 

@@ -47,7 +47,7 @@
         </br>
         <button type="submit" class="btn btn-success" name="submit">Submit</button>
         
-        <button type="submit" class="btn btn-primary"><a href="userhomepage.php" style="color:white;">Back to Homepage</a></button>
+        <button type="submit" class="btn btn-primary"><a href="useradmin.php" style="color:white;">Back to Homepage</a></button>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
