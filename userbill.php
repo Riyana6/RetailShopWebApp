@@ -1,6 +1,6 @@
 <?php
 
-
+$connection = mysqli_connect("localhost","root","","reg");
 
  $number =  count($_GET["item_name"]);
 if ($number > 1)
@@ -29,7 +29,7 @@ if(isset($_GET['add']))
     {
         $itemname  = $_GET['item_name'];
         $quantity  = $_GET['quantity'];
-		$connection = mysqli_connect("localhost","root","","reg");
+		
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 			exit();
@@ -215,7 +215,7 @@ if(isset($_GET['add']))
                             $('#submit').click(function() {
                                 $.ajax({
                                     url: "userbill.php",
-                                    method: "POST",
+                                    method: "GET",
                                     data: $('#add_name').serialize(),
                                     success: function(data) {
                                         alert(data);
