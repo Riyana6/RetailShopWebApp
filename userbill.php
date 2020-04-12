@@ -71,8 +71,13 @@ if(isset($_GET['add']))
         </div>
 
 
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <input type="number" class="form-control" name="billno" id="billno" placeholder="Bill No:">
+            </div>
+        </div>
 
-        <input type="number" class="form-control" name="billno" id="billno" placeholder="Bill No:">
+
 
         <div class="col-sm-9">
             <form action="userbill.php" method="GET" name="add_name" id="add_name">
@@ -83,7 +88,7 @@ if(isset($_GET['add']))
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="dynamic_field">
                                 <tr>
- 
+
                                     <th width="13%">Item Code</th>
                                     <th width="36%">Item Name</th>
                                     <th width="15%">Quantity</th>
@@ -108,7 +113,8 @@ if(isset($_GET['add']))
                                     </td>
                                     <td><input type="number" name="total" class="form-control" autocomplete="off"
                                             value="<?php echo $total; ?>" /></td>
-                                    <td><button class="btn btn-success" id="newrow" name="newrow" type="button">+</button></td>
+                                    <td><button class="btn btn-success" id="newrow" name="newrow"
+                                            type="button">+</button></td>
 
                                 </tr>
                             </table>
@@ -151,35 +157,37 @@ if(isset($_GET['add']))
                         <tr>
 
                             <td colspan="3">
-                                
+
                                 <input type="submit" name="create_ebill" id="create_ebill"
                                     class="btn btn-secondary btn-sm" value="E-Bill" />
                                 <input type="button" name="print" id="print" class="btn btn-info btn-sm"
                                     value="Print" />
-                             
-                                <a href="userbill.php"><input type="button" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                    value="Cancel" /></a>
+
+                                <a href="userbill.php"><input type="button" name="cancel" id="cancel"
+                                        class="btn btn-danger btn-sm" value="Cancel" /></a>
                             </td>
                         </tr>
                     </table>
                 </div>
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var i = 1;
-            $('#newrow').click(function() {
-                i++;
-                $('#dynamic_field').append('<tr id="row'+i+'"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "'+i+'" name = "remove" type = "submit" > X </button></td></tr>');
-            });
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                <script>
+                $(document).ready(function() {
+                    var i = 1;
+                    $('#newrow').click(function() {
+                        i++;
+                        $('#dynamic_field').append('<tr id="row' + i +
+                            '"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "' +
+                            i + '" name = "remove" type = "submit" > X </button></td></tr>');
+                    });
 
-            $(document).on('click', '.btn_remove', function() {
-                var button_id = $(this).attr("id");
-                $("#row" + button_id + "").remove();
-            });               
-        });
-    </script>
+                    $(document).on('click', '.btn_remove', function() {
+                        var button_id = $(this).attr("id");
+                        $("#row" + button_id + "").remove();
+                    });
+                });
+                </script>
 
 
 
@@ -191,7 +199,7 @@ if(isset($_GET['add']))
         document.getElementById("order_date").innerHTML = d;
         </script>
     </div>
-    
+
 </body>
 
 </html>
