@@ -11,7 +11,7 @@
     <style>
     .form3 {
         width: 20%;
-        margin: 150px 100px 10px 390px;
+        margin: 25% 25% 25% 25%;
         align: center;
     }
 
@@ -20,6 +20,14 @@
         margin-top: 30px;
         color: rgb(61, 182, 219);
     }
+
+
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px #000080;
+        padding: 10px;
+    }
     </style>
 </head>
 
@@ -27,18 +35,13 @@
 
     <h1 class="head">E-Billing Web Application</h1>
 
-    <form class="form3">
-        <div class="center">
+    <form class="form3" >
+        
             <button type="submit" formaction="useradminlogin.php" class="btn btn-primary btn-lg btn-block">Login As
                 Admin</button><br>
             <button type="submit" formaction="userlogin.php" class="btn btn-secondary btn-lg btn-block">Login As
                 Cashier</button><br>
-        </div>
-
-
-
-
-    </form>
+       </form>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
