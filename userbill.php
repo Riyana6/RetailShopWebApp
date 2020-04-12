@@ -10,7 +10,7 @@ for ($i=0; $i<$number; $i++)
         if(trim($_GET["item_name"][$i]) != '')
         {
 
-            $sql = "INSERT INTO table_name (item_name) VALUES ('".mysqli_real_escape_string($connect, $_GET["item_name"][$i]."'))";
+            $sql = "INSERT INTO table_name (item_name) VALUES ('".mysqli_real_escape_string($connect, $_GET["item_name"][$i])."')";
             mysqli_query($connect, $sql);
         }
     }
