@@ -72,7 +72,7 @@ if(isset($_GET['add']))
 
 
 
-
+        <input type="number" class="form-control" name="billno" id="billno" placeholder="Bill No:">
 
         <div class="col-sm-9">
             <form action="userbill.php" method="GET" name="add_name" id="add_name">
@@ -157,7 +157,7 @@ if(isset($_GET['add']))
                                 <input type="button" name="print" id="print" class="btn btn-info btn-sm"
                                     value="Print" />
                              
-                                <a href="userhomepage.php"><input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
+                                <a href="userbill.php"><input type="button" name="cancel" id="cancel" class="btn btn-danger btn-sm"
                                     value="Cancel" /></a>
                             </td>
                         </tr>
