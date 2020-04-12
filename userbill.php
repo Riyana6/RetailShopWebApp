@@ -151,15 +151,14 @@ if(isset($_GET['add']))
                         <tr>
 
                             <td colspan="3">
-                                <input type="hidden" name="total_item" id="total_item" value="1" />
+                                
                                 <input type="submit" name="create_ebill" id="create_ebill"
                                     class="btn btn-secondary btn-sm" value="E-Bill" />
                                 <input type="button" name="print" id="print" class="btn btn-info btn-sm"
                                     value="Print" />
-                                <input type="button" name="text_msg" id="text_msg" class="btn btn-success btn-sm"
-                                    value="Text" />
-                                <input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
-                                    value="Cancel" />
+                             
+                                <a href="userhomepage.php"><input type="reset" name="cancel" id="cancel" class="btn btn-danger btn-sm"
+                                    value="Cancel" /></a>
                             </td>
                         </tr>
                     </table>
