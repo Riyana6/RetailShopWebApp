@@ -1,4 +1,30 @@
 <?php
+
+
+
+ $number =  count($_GET["item_name"]);
+if ($number > 1)
+{
+for ($i=0; $i<$number; $i++)
+    { 
+        if(trim($_GET["item_name"][$i]) != '')
+        {
+
+            $sql = "INSERT INTO table_name (item_name) VALUES ('".mysqli_real_escape_string($connect, $_GET["item_name"][$i]."'))";
+            mysqli_query($connect, $sql);
+        }
+    }
+        echo 'Data Inserted';
+}else
+{
+    echo "Enter Item name";
+}
+ 
+
+
+
+
+
 if(isset($_GET['add']))
     {
         $itemname  = $_GET['item_name'];
@@ -69,12 +95,6 @@ if(isset($_GET['add']))
                 </center>
             </div>
         </div>
-
-
-
-
-
-
         <div class="col-sm-9">
             <form action="userbill.php" method="GET" name="add_name" id="add_name">
 
@@ -101,7 +121,7 @@ if(isset($_GET['add']))
                                     <td><input type="number" name="item_code" class="form-control"
                                             value="<?php echo $itemcode ?>" />
                                     </td>
-                                    <td><input type="text" name="item_name" class="form-control" autocomplete="on"
+                                    <td><input type="text" name="item_name[]" class="form-control" autocomplete="on"
                                             value="<?php echo $itemname; ?>" />
                                     </td>
                                     <td><input type="number" name="quantity" class="form-control" autocomplete="off"
@@ -180,18 +200,32 @@ if(isset($_GET['add']))
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
                 <script>
                 $(document).ready(function() {
-                    var i = 1;
-                    $('#newrow').click(function() {
-                        i++;
-                        $('#dynamic_field').append('<tr id="row' + i +
-                            '"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "' +
-                            i + '" name = "remove" type = "submit" > X </button></td></tr>');
-                    });
+                            var i = 1;
+                            $('#newrow').click(function() {
+                                i++;
+                                $('#dynamic_field').append('<tr id="row' + i +
+                                    '"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name[]" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "' +
+                                    i + '" name = "remove" type = "submit" > X </button></td></tr>');
+                            });
 
-                    $(document).on('click', '.btn_remove', function() {
-                        var button_id = $(this).attr("id");
-                        $("#row" + button_id + "").remove();
-                    });
+                            $(document).on('click', '.btn_remove', function() {
+                                var button_id = $(this).attr("id");
+                                $("#row" + button_id + "").remove();
+                            });
+                            $('#submit').click(function() {
+                                $.ajax({
+                                    url: "userbill.php",
+                                    method: "POST",
+                                    data: $('#add_name').serialize(),
+                                    success: function(data) {
+                                        alert(data);
+                                        $('#add_name')[0].reset();
+                                    }
+
+                                });
+
+                            }):
+                </script>
                 });
                 </script>
 
