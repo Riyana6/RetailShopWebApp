@@ -229,10 +229,6 @@ if(isset($_GET['add']))
                 </script>
                 });
                 </script>
-
-
-
-
             </form>
         </div>
         <script>
