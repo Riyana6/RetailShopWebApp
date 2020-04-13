@@ -4,7 +4,7 @@ $connection = mysqli_connect("localhost","root","","reg");
 
 if(isset($_GET['add']))
     {
-        $itemname  = $_GET['item_name[]'];
+        $itemname  = $_GET['item_name'];
         $quantity  = $_GET['quantity'];
 		
 		if (mysqli_connect_errno()) {
@@ -182,7 +182,7 @@ if(isset($_GET['add']))
                     $('#newrow').click(function() {
                         i++;
                         $('#dynamic_field').append('<tr id="row' + i +
-                            '"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name[]" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "' +
+                            '"><td><input type = "number" name = "item_code" class = "form-control" /></td><td><input type = "text" name = "item_name" class = "form-control" autocomplete = "on" /></td><td><input type = "number" name = "quantity" class = "form-control" autocomplete = "off" /></td><td><input type = "number" name = "unit_price" class = "form-control" /></td><td><input type = "number" name = "total" class = "form-control" autocomplete = "off" /></td><td><button class = "btn btn-danger btn_remove" id = "' +
                             i + '" name = "remove" type = "submit" > X </button></td></tr>');
                     });
 
