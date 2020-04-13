@@ -216,7 +216,7 @@ if(isset($_GET['add']))
                             $('#submit').click(function() {
                                 $.ajax({
                                     url: "userbill.php",
-                                    method: "GET",
+                                    method: "POSt",
                                     data: $('#add_name').serialize(),
                                     success: function(data) {
                                         alert(data);
