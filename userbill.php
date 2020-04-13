@@ -2,15 +2,15 @@
 
 $connection = mysqli_connect("localhost","root","","reg");
 
- $number =  count($_GET["item_name[]"]);
+ $number =  count($_POST["item_name[]"]);
 if ($number > 1)
 {
 for ($i=0; $i<$number; $i++)
     { 
-        if(trim($_GET["item_name"][$i]) != '')
+        if(trim($_POST["item_name"][$i]) != '')
         {
 
-            $sql = "INSERT INTO table_name (item_name) VALUES ('".mysqli_real_escape_string($connect, $_GET["item_name"][$i])."')";
+            $sql = "INSERT INTO table_name (item_name) VALUES ('".mysqli_real_escape_string($connect, $_POST["item_name"][$i])."')";
             mysqli_query($connect, $sql);
         }
     }
