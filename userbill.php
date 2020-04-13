@@ -171,7 +171,8 @@ if(isset($_GET['add']))
                                     value="Print" />
 
                                 <a href="userbill.php"><input type="button" name="cancel" id="cancel"
-                                        class="btn btn-danger btn-sm" value="Cancel" /></a>
+                                        class="btn btn-danger btn-sm" value="Cancel" />
+                                </a>
                             </td>
                         </tr>
                     </table>
