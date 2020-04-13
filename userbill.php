@@ -1,12 +1,9 @@
 <?php
-
-$connection = mysqli_connect("localhost","root","","reg");
-
 if(isset($_GET['add']))
     {
         $itemname  = $_GET['item_name'];
         $quantity  = $_GET['quantity'];
-		
+		$connection = mysqli_connect("localhost","root","","reg");
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 			exit();
@@ -72,6 +69,12 @@ if(isset($_GET['add']))
                 </center>
             </div>
         </div>
+
+
+
+
+
+
         <div class="col-sm-9">
             <form action="userbill.php" method="GET" name="add_name" id="add_name">
 
@@ -167,8 +170,7 @@ if(isset($_GET['add']))
                                     value="Print" />
 
                                 <a href="userbill.php"><input type="button" name="cancel" id="cancel"
-                                        class="btn btn-danger btn-sm" value="Cancel" />
-                                </a>
+                                        class="btn btn-danger btn-sm" value="Cancel" /></a>
                             </td>
                         </tr>
                     </table>
@@ -190,8 +192,7 @@ if(isset($_GET['add']))
                         var button_id = $(this).attr("id");
                         $("#row" + button_id + "").remove();
                     });
-
-                }):
+                });
                 </script>
             </form>
         </div>
