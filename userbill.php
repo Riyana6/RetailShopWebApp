@@ -2,7 +2,7 @@
 
 $connection = mysqli_connect("localhost","root","","reg");
 
- $number =  count($_POST["item_name[]"]);
+ $number =  count($_POST["item_name"]);
 if ($number > 1)
 {
 for ($i=0; $i<$number; $i++)
